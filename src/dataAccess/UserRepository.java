@@ -39,6 +39,8 @@ public class UserRepository implements IUserRepository {
                 if (exists(user)) {
                     throw new InstanceAlreadyExistsException();
                 }
+                if(user == null)
+                    throw new NullPointerException();
                 // Write user data to the file
                 bufferedWriter.write(user.getUsername() + "," + user.getPassword());
                 bufferedWriter.newLine();
@@ -65,6 +67,9 @@ public class UserRepository implements IUserRepository {
         // File path to read user data from
         String filePath = "users.txt";
         Scanner scanner = null;
+
+        if (user == null)
+            throw new NullPointerException();
 
         try {
             scanner = new Scanner(new File(filePath));
