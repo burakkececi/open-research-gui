@@ -5,6 +5,7 @@ import model.login.LoginModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 
 public class LoginView extends JFrame implements ILoginView {
@@ -17,6 +18,7 @@ public class LoginView extends JFrame implements ILoginView {
     private LoginModel model;
 
     public LoginView(LoginModel model) {
+
         this.model = model;
 
         // Frame initialization
@@ -53,8 +55,6 @@ public class LoginView extends JFrame implements ILoginView {
         // Login button
         loginButton = new JButton("Login");
         loginButton.setBounds(300, 300, 300, 40);
-        // login controllerdaki action listener çağırıyor
-        loginButton.addActionListener(new LoginController(this, model));
         this.add(loginButton);
 
         // Validation message
@@ -71,17 +71,14 @@ public class LoginView extends JFrame implements ILoginView {
         return password;
     }
 
-    public JButton getLoginButton() {
-        return loginButton;
-    }
-
-    public JLabel getMessageLabel() {
-        return messageLabel;
+    public void addLoginListener(ActionListener mal) {
+        loginButton.addActionListener(mal);
     }
 
     @Override
     public void update(Observable o, Object arg) {
-
+        messageLabel.setText((String) arg);
     }
+
 }
 
