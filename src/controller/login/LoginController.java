@@ -2,15 +2,15 @@ package controller.login;
 
 import entities.User;
 import model.login.LoginModel;
+import model.main.MainModel;
 import view.login.LoginView;
-import view.main.IMainView;
 import view.main.MainView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class LoginController implements ActionListener {
+public class LoginController {
 
     LoginView view;
     LoginModel model;
@@ -19,26 +19,34 @@ public class LoginController implements ActionListener {
         this.model = loginModel;
         this.view = loginView;
 
+        view.addLoginListener(new LoginListener());
         model.addObserver(view);
+
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        String user = view.getUsername().getText();
-        String passw = new String(view.getPasswordText().getPassword());
+    private class LoginListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String username = view.getUsername().getText();
+            String passw = new String(view.getPasswordText().getPassword());
 
-        if (model.isUserValid(new User(user, passw))) {
-            view.getMessageLabel().setText("Successfully login!");
-            // set login view invisible
-            view.setVisible(false);
+            User user = new User(username, passw);
+            model.setUser(user);
 
-            // show main page
-            MainView iMainView = new MainView();
-            iMainView.showWindow();
-            iMainView.setVisible(true);
+            if (model.isUserValid()) {
+                model.setText("Successfully login!");
+                // set login view invisible
+                view.setVisible(false);
 
-        } else {
-            view.getMessageLabel().setText("Invalid username or password!");
+                // show main page
+                MainModel model = new MainModel(user);
+                MainView iMainView = new MainView(model);
+                iMainView.setVisible(true);
+
+            } else {
+                model.setText("Invalid username or password!");
+
+            }
         }
     }
 }
