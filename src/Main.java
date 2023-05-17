@@ -5,13 +5,8 @@ import entities.User;
 import model.login.LoginModel;
 import view.login.LoginView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
-
-        List<User> users = new ArrayList<>();
 
         // create users
         User muslera = new User("muslera", "12345");
@@ -20,20 +15,16 @@ public class Main {
         User boey = new User("boey", "12345");
         User mertens = new User("mertens", "12345");
 
-        // adding them to list
-        users.add(muslera);
-        users.add(icardi);
-        users.add(kerem);
-        users.add(boey);
-        users.add(mertens);
-
         // saving users to repository pasha'm
         IUserRepository iUserRepository = new UserRepository();
-        iUserRepository.saveUsers(users);
+        iUserRepository.saveUser(muslera);
+        iUserRepository.saveUser(icardi);
+        iUserRepository.saveUser(kerem);
+        iUserRepository.saveUser(boey);
+        iUserRepository.saveUser(mertens);
 
         LoginModel model = new LoginModel(); // model
         LoginView view = new LoginView(model); // view
         LoginController controller = new LoginController(view, model); // controller
-        view.setVisible(true);
     }
 }
