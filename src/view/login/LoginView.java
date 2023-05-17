@@ -61,6 +61,8 @@ public class LoginView extends JFrame implements ILoginView {
         messageLabel = new JLabel("");
         messageLabel.setBounds(350, 350, 200, 40);
         this.add(messageLabel);
+
+        setVisible(true);
     }
 
     public JTextField getUsername() {

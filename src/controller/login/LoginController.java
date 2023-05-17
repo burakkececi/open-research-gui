@@ -1,5 +1,6 @@
 package controller.login;
 
+import controller.main.MainController;
 import entities.User;
 import model.login.LoginModel;
 import model.main.MainModel;
@@ -39,9 +40,9 @@ public class LoginController {
                 view.setVisible(false);
 
                 // show main page
-                MainModel model = new MainModel(user);
-                MainView iMainView = new MainView(model);
-                iMainView.setVisible(true);
+                MainModel mModel = new MainModel(user);
+                MainView mView = new MainView(mModel);
+                MainController controller = new MainController(mModel, mView);
 
             } else {
                 model.setText("Invalid username or password!");

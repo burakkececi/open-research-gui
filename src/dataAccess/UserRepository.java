@@ -15,14 +15,16 @@ import java.util.Scanner;
 public class UserRepository implements IUserRepository {
 
     @Override
-    public void saveUsers(List<User> users) {
+    public void saveUser(User user) {
 
         // File path to save user data
         String filePath = "users.txt";
 
-        if(users.size() == 0) return;
-
         try {
+
+            if (user == null)
+                throw new NullPointerException();
+
             FileWriter fileWriter = new FileWriter(filePath, true); // true to append data to the file
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
@@ -34,17 +36,14 @@ public class UserRepository implements IUserRepository {
                 System.out.println("New file created.");
             }
 
-            for (User user : users) {
-                // check user already exists
-                if (exists(user)) {
-                    throw new InstanceAlreadyExistsException();
-                }
-                if(user == null)
-                    throw new NullPointerException();
-                // Write user data to the file
-                bufferedWriter.write(user.getUsername() + "," + user.getPassword());
-                bufferedWriter.newLine();
+            // check user already exists
+            if (exists(user)) {
+                throw new InstanceAlreadyExistsException();
             }
+
+            // Write user data to the file
+            bufferedWriter.write(user.getUsername() + "," + user.getPassword());
+            bufferedWriter.newLine();
 
             // Close the resources
             bufferedWriter.close();

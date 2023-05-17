@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IUserRepository {
 
-    void saveUsers(List<User> users);
+    void saveUser(User user);
 
     boolean exists(User user);
 }
