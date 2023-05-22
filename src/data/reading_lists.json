@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Reading List 1",
+    "researcherName": "user1",
+    "papers": [
+      "A Formally Verified Compiler Back-End",
+      "Introducing Test Automation and Test-Driven Development"
+    ]
+  },
+  {
+    "name": "Reading List 1",
+    "researcherName": "user2",
+    "papers": [
+      "A Formally Verified Compiler Back-End",
+      "Introducing Test Automation and Test-Driven Development"
+    ]
+  },
+  {
+    "name": "Reading List 1",
+    "researcherName": "user3",
+    "papers": [
+      "An Experimental Evaluation of Test Driven Development vs. Test-Last Development with Industry Professionals",
+      "Generating User Acceptance Test Plans from Test Cases",
+      "Test-Driven Development: Concepts",
+      "On the Effectiveness of the Test-First Approach to Programming"
+    ]
+  },
+  {
+    "name": "Reading List 1",
+    "researcherName": "user4",
+    "papers": [
+      "An Experimental Evaluation of Test Driven Development vs. Test-Last Development with Industry Professionals",
+      "Generating User Acceptance Test Plans from Test Cases",
+      "Test-Driven Development: Concepts",
+      "On the Effectiveness of the Test-First Approach to Programming",
+      "A Formally Verified Compiler Back-End"
+    ]
+  },
+  {
+    "name": "Reading List 1",
+    "researcherName": "user5",
+    "papers": [
+      "An Experimental Evaluation of Test Driven Development vs. Test-Last Development with Industry Professionals",
+      "Generating User Acceptance Test Plans from Test Cases",
+      "An Initial Investigation of Test Driven Development in Industry",
+      "On the Effectiveness of the Test-First Approach to Programming",
+      "A Formally Verified Compiler Back-End"
+    ]
+  },
+  {
+    "name": "Reading List 2",
+    "researcherName": "user5",
+    "papers": [
+      "An Experimental Evaluation of Test Driven Development vs. Test-Last Development with Industry Professionals",
+      "Generating User Acceptance Test Plans from Test Cases",
+      "An Initial Investigation of Test Driven Development in Industry",
+      "On the Effectiveness of the Test-First Approach to Programming",
+      "A Formally Verified Compiler Back-End"
+    ]
+  }
+]
